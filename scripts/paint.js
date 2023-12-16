@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function draw(e) {
         if (!painting) return;
 
-        ctx.lineWidth = 5;
+        ctx.lineWidth = document.getElementById('brushSize').value;
         ctx.lineCap = 'round';
 
         ctx.lineTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
@@ -43,4 +43,12 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('blackColorButton').addEventListener('click', () => changeColor('black'));
     document.getElementById('redColorButton').addEventListener('click', () => changeColor('red'));
     document.getElementById('blueColorButton').addEventListener('click', () => changeColor('blue'));
+
+    document.getElementById('brushSize').addEventListener('input', function () {
+        ctx.lineWidth = this.value;
+    });
+    
+    document.getElementById('colorPicker').addEventListener('input', function () {
+        changeColor(this.value);
+    });
 });

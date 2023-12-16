@@ -11,12 +11,15 @@
 </head>
 
 <body>
-    <canvas id="paintCanvas" width="800" height="600"></canvas>
-    <div>
+    <canvas id="paintCanvas" width="800" height="600" style="background-color: white;"></canvas>
+    <div style="display: flex; justify-content: center; align-items: center; gap: 10px;">
         <button id="clearButton">Clear Canvas</button>
         <button id="blackColorButton">Black Color</button>
         <button id="redColorButton">Red Color</button>
         <button id="blueColorButton">Blue Color</button>
+        <input type="color" id="colorPicker" value="#000000">
+        <label for="brushSize">Brush Size:</label>
+        <input type="range" id="brushSize" min="1" max="20" value="5">
     </div>
     <div class="icons_container">
         <iframe
@@ -24,8 +27,9 @@
             frameborder="0"></iframe>
     </div>
     <footer id="dynamicFooter"></footer>
-    <script src="https://cursedprograms.github.io/cursedentertainment/scripts/footer.js"></script>
-    <script src="index.js"></script>
+    <script src="https://cursedprograms.github.io/cursedentertainment/scripts/footer.js"></script>    
+    <script src="scripts/paint.js"></script>
+    <script src="scripts/dragAndDrop.js"></script>
 </body>
 
 </html>
