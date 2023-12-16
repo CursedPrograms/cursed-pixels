@@ -1,73 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <title>Cursed Pixels</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Paint Program</title>
-    <style>
-        canvas {
-            border: 1px solid #000;
-            display: block;
-            margin: 20px auto;
-        }
-    </style>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cursedprograms.github.io/cursedentertainment/styles/main-style.css">
 </head>
+
 <body>
     <canvas id="paintCanvas" width="800" height="600"></canvas>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const canvas = document.getElementById('paintCanvas');
-            const ctx = canvas.getContext('2d');
-
-            let painting = false;
-
-            function startPosition(e) {
-                painting = true;
-                draw(e);
-            }
-
-            function endPosition() {
-                painting = false;
-                ctx.beginPath();
-            }
-
-            function draw(e) {
-                if (!painting) return;
-
-                ctx.lineWidth = 5;
-                ctx.lineCap = 'round';
-
-                ctx.lineTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
-                ctx.stroke();
-                ctx.beginPath();
-                ctx.moveTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
-            }
-
-            function changeColor(color) {
-                ctx.strokeStyle = color;
-            }
-
-            function clearCanvas() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-            }
-
-            canvas.addEventListener('mousedown', startPosition);
-            canvas.addEventListener('mouseup', endPosition);
-            canvas.addEventListener('mousemove', draw);
-
-            // Additional functionality
-            document.getElementById('clearButton').addEventListener('click', clearCanvas);
-
-            document.getElementById('blackColorButton').addEventListener('click', () => changeColor('black'));
-            document.getElementById('redColorButton').addEventListener('click', () => changeColor('red'));
-            document.getElementById('blueColorButton').addEventListener('click', () => changeColor('blue'));
-        });
-    </script>
     <div>
         <button id="clearButton">Clear Canvas</button>
         <button id="blackColorButton">Black Color</button>
         <button id="redColorButton">Red Color</button>
         <button id="blueColorButton">Blue Color</button>
     </div>
+    <div class="icons_container">
+        <iframe
+            src="https://cursedprograms.github.io/cursedentertainment/iframes/social-media-icons/social-media-icons.html"
+            frameborder="0"></iframe>
+    </div>
+    <footer id="dynamicFooter"></footer>
+    <script src="https://cursedprograms.github.io/cursedentertainment/scripts/footer.js"></script>
+    <script src="index.js"></script>
 </body>
+
 </html>
