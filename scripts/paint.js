@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const ctx = canvas.getContext('2d');
 
     let painting = false;
+    let eraserMode = false;
 
     function startPosition(e) {
         painting = true;
@@ -20,14 +21,29 @@ document.addEventListener('DOMContentLoaded', function () {
         ctx.lineWidth = document.getElementById('brushSize').value;
         ctx.lineCap = 'round';
 
+        if (eraserMode) {
+            ctx.globalCompositeOperation = 'destination-out'; // Set globalCompositeOperation to make content transparent
+        } else {
+            ctx.globalCompositeOperation = 'source-over'; // Restore default mode
+            ctx.strokeStyle = document.getElementById('colorPicker').value;
+        }
+
         ctx.lineTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
         ctx.stroke();
         ctx.beginPath();
         ctx.moveTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
     }
 
+    function toggleEraserMode() {
+        eraserMode = !eraserMode;
+    }
+
     function changeColor(color) {
         ctx.strokeStyle = color;
+        ctx.globalCompositeOperation = 'source-over';
+        if (eraserMode) {
+            toggleEraserMode();
+        }
     }
 
     function clearCanvas() {
@@ -37,17 +53,13 @@ document.addEventListener('DOMContentLoaded', function () {
     canvas.addEventListener('mousedown', startPosition);
     canvas.addEventListener('mouseup', endPosition);
     canvas.addEventListener('mousemove', draw);
-
     document.getElementById('clearButton').addEventListener('click', clearCanvas);
-
-    document.getElementById('blackColorButton').addEventListener('click', () => changeColor('black'));
-    document.getElementById('redColorButton').addEventListener('click', () => changeColor('red'));
-    document.getElementById('blueColorButton').addEventListener('click', () => changeColor('blue'));
+    document.getElementById('eraserButton').addEventListener('click', toggleEraserMode);
 
     document.getElementById('brushSize').addEventListener('input', function () {
         ctx.lineWidth = this.value;
     });
-    
+
     document.getElementById('colorPicker').addEventListener('input', function () {
         changeColor(this.value);
     });

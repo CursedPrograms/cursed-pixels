@@ -1,9 +1,98 @@
-body{
-    overflow:hidden;
+body {
+    overflow: hidden;
 }
 
 canvas {
-    border: 1px solid #000;
+    border: 1px solid var(--canvas-border-color, #000);
     display: block;
     margin: 20px auto;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+button {
+    padding: 10px;
+    background-color: var(--button-bg-color, #007AB7);
+    color: var(--button-text-color, white);
+    border: 1px solid var(--button-border-color, white);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--button-hover-bg-color, #00557e);
+}
+
+input[type="color"] {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+}
+
+label {
+    background-color: var(--button-bg-color, #007AB7);
+    color: var(--button-text-color, white);
+    padding: 5px;
+    margin-left: 10px;
+    border-radius: 5px;
+}
+
+input[type="range"] {
+    width: 100px;
+    margin-left: 5px;
+    background-color: var(--button-bg-color, #007AB7);
+}
+
+.icons_container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+:root {
+    --canvas-border-color: #000;
+    --button-border-color: white;
+    --button-bg-color: #007AB7;
+    --button-text-color: white;
+    --button-hover-bg-color: #00557e;
+}
+
+#brushSize {
+    width: 15%; 
+    height: 10px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: #d3d3d3;
+    border-radius: 5px; 
+    outline: none;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+#brushSize:hover {
+    opacity: 1;
+}
+
+#brushSize::-webkit-slider-thumb {
+    -webkit-appearance: none; 
+    appearance: none;
+    width: 20px;
+    height: 20px; 
+    background: #00557e;
+    border-radius: 50%;
+    cursor: pointer; 
+}
+
+#brushSize::-moz-range-thumb {
+    width: 20px;
+    height: 20px; 
+    background: #00557e;
+    border-radius: 50%;
+    cursor: pointer; 
 }
