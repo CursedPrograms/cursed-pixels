@@ -1,5 +1,7 @@
 # Cursed Pixels
 
+![Cursed Pixels Demo](https://github.com/CursedPrograms/cursed-pixels/blob/main/cursed-pixels-demo.png)
+
 Cursed Pixels is a simple canvas drawing application built using HTML, JavaScript, and CSS. This application allows users to draw on a canvas, change brush colors and sizes, and load images onto the canvas.
 
 ## Demo
