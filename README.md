@@ -1,5 +1,5 @@
 <a href="https://github.com/CursedPrograms/cursed-pixels/actions/workflows/proof-html.yml">
-    <img class="workflow-badge workflow-success" src="https://github.com/Cursed-Entertainment/Image-Uploader-Resizer/actions/workflows/proof-html.yml/badge.svg" alt="Proof HTML Workflow">
+    <img class="workflow-badge workflow-success" src="https://github.com/CursedPrograms/cursed-pixels/actions/workflows/proof-html.yml/badge.svg" alt="Proof HTML Workflow">
 </a>
 
 <div align="center">
